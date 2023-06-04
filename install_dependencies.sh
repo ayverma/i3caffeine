@@ -4,12 +4,13 @@ base_os = `grep '^ID_LIKE' /etc/os-release`
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [[ $base_os == *arch ]]; then
         echo "Arch-based OS detected"
-        echo "Installing required packages for arch based systems from Official Arch repositories..."
+        echo "Installing required packages for Arch-based systems from Official Arch repositories..."
         pacman -Scq --noconfirm --noprogressbar xorg-xset
         #To download packages, clean local cache, quiet install, and refresh database
 
     elif [[ $base_os == *debian ]]; then
         echo "Debian-based OS detected"
+        echo "Installing required packages for Debian-based systems via apt-get..."
         apt-get -y install x11-xserver-utils
     # more distros to be added
     fi
